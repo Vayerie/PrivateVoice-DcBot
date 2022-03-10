@@ -1,0 +1,41 @@
+{
+  "name": "channel-master",
+  "version": "5.0.2",
+  "description": "The official repository of the Channel Master Discord Bot. A Voice Master clone, just way way faster and more advanced offering 100% customizability and 3 Setups!",
+  "main": "index.js",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cpu-stat": "^2.0.1",
+    "discord.js": "^13.3.1",
+    "enmap": "^5.8.4"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomato6966/Join-to-Create-Bot-Discord.git"
+  },
+  "keywords": [
+    "application",
+    "apply",
+    "discord",
+    "bot",
+    "discordjs",
+    "developer",
+    "Milrato",
+    "easy",
+    "easiest",
+    "advanced",
+    "good",
+    "fast",
+    "emojis",
+    "reactions"
+  ],
+  "author": "Kos#9100",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Tomato6966/Join-to-Create-Bot-Discord/issues"
+  },
+  "homepage": "https://milrato.dev"
+}
