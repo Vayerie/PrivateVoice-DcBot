@@ -9,7 +9,7 @@ module.exports = client => {
    * ////////////////////////////////////////// *
    */
   client.category = {
-    "general": ["ping", "support", "server", "video", "info", "stats", "stat", "uptime", "add", "invite", "github", "prefix"],
+    "general": ["ping", "support", "server", "video", "info", "stats", "stat", "uptime", "add", "invite", "github", "prefix", "sl"],
     "voice": ["lock", "unlock", "kick", "vcinvite", "vcadd", "voiceinvite", "voiceadd", "blacklist", "unblacklist", "whitelist", "unwhitelist", "rename", "limit", "bitrate", "promote"],
     "setup": ["setup", "setname", "setup2", "setname2", "setup3", "setname3"]
   };
