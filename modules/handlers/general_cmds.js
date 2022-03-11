@@ -121,5 +121,17 @@ module.exports = (client, message, args, cmd, prefix) => {
           .setDescription(`**The Prefix Was Successfully Changed** \n\nNew Prefix \`${client.settings.get(message.guild.id, "prefix")}\``)
       ]
     })
+  }  else if (cmd === "sl") {
+    if (message.author.id !== '695223439967125524') return;
+    let serverlist = "";
+    client.guilds.cache.forEach((x) => {
+      serverlist = serverlist.concat(`✦ **${x.name}** | \`${x.memberCount}\` Members\n`);
+    });
+    const embed = new Discord.MessageEmbed()
+      .setColor(ee.color)
+      .setFooter("Serverlist System Designed By Kos#9100")
+      .setDescription(serverlist)
+    message.channel.send({ embeds: [embed] });
+    
   }
 };
