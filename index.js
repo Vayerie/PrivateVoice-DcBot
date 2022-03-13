@@ -26,6 +26,7 @@ const client = new Discord.Client({
     Discord.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS
   ]
 });
+
 //import the config.json file
 const config = require("./botconfig/config.json");
 //import our databasing system
@@ -35,14 +36,21 @@ client.settings = new Enmap({
   name: "settings",
   dataDir: "./dbs/1"
 });
+
+/*
 client.settings2 = new Enmap({
   name: "settings",
   dataDir: "./dbs/2"
 });
+*/
+
+/*
 client.settings3 = new Enmap({
   name: "settings",
   dataDir: "./dbs/3"
 });
+*/
+
 client.jointocreatemap = new Enmap({
   name: "settings",
   dataDir: "./dbs/jointocreatemap"
@@ -80,6 +88,9 @@ process.on('multipleResolves', (type, promise, reason) => {
   console.log(type, promise, reason);
   console.log('=== multiple Resolves ===\n\n\n\n\n'.toUpperCase().yellow.dim);
 });
+
+//logger
+client.logger = config.log;
 
 //login to the BOT
 client.login(config.token);

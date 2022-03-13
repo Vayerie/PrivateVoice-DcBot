@@ -40,8 +40,8 @@ module.exports = (client, message, args, cmd, prefix) => {
 
         let totalSetups = 0;
         totalSetups += client.settings.filter(s => s.channel && s.channel.length > 1).size;
-        totalSetups += client.settings2.filter(s => s.channel && s.channel.length > 1).size;
-        totalSetups += client.settings3.filter(s => s.channel && s.channel.length > 1).size;
+        //totalSetups += client.settings2.filter(s => s.channel && s.channel.length > 1).size;
+        //totalSetups += client.settings3.filter(s => s.channel && s.channel.length > 1).size;
 
         const botinfo = new Discord.MessageEmbed()
           .setAuthor(client.user.username, client.user.displayAvatarURL())

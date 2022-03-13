@@ -12,6 +12,8 @@ function databasing(guildid, client) {
         channelname: "Private {user}",
         guild: guildid,
     });
+///SETUP 2, 3
+    /*
     client.settings2.ensure(guildid, {
         channel: "",
         channelname: "{user}' Channel",
@@ -22,6 +24,7 @@ function databasing(guildid, client) {
         channelname: "{user}' Lounge",
         guild: guildid,
     })
+    */
 };
 
 //Function to reset the Database
@@ -32,6 +35,8 @@ function reset_DB(guildid, client) {
         channelname: "Private {user}",
         guild: guildid,
     });
+///SETUP 2, 3
+    /*
     client.settings2.set(guildid, {
         channel: "",
         channelname: "{user}' Channel",
@@ -42,6 +47,7 @@ function reset_DB(guildid, client) {
         channelname: "{user}' Lounge",
         guild: guildid,
     })
+    */
 };
 
 //FUNCTION FOR CHECKING THE PREFIX !
@@ -76,8 +82,8 @@ function check_voice_channels(client) {
             databasing(guild.id, client);
             let jointocreate = []; //get the data from the database onto one variables
             jointocreate.push(client.settings.get(guild.id, "channel"));
-            jointocreate.push(client.settings2.get(guild.id, "channel"));
-            jointocreate.push(client.settings3.get(guild.id, "channel"));
+            //jointocreate.push(client.settings2.get(guild.id, "channel"));
+            //jointocreate.push(client.settings3.get(guild.id, "channel"));
             for (let j = 0; j < jointocreate.length; j++) {
                 let channel = guild.channels.cache.get(jointocreate[j]);
                 if (!channel) continue;
@@ -98,8 +104,8 @@ function check_voice_channels(client) {
 //function to create a voice channel
 function create_join_to_create_Channel(client, user, type) {
     if (type == 1) chname = client.settings.get(user.member.guild.id, "channelname");
-    else if (type == 2) chname = client.settings2.get(user.member.guild.id, "channelname");
-    else if (type == 3) chname = client.settings3.get(user.member.guild.id, "channelname");
+    //else if (type == 2) chname = client.settings2.get(user.member.guild.id, "channelname");
+    //else if (type == 3) chname = client.settings3.get(user.member.guild.id, "channelname");
     else chname = "Private {user}";
     //CREATE THE CHANNEL
     let allowed = true;

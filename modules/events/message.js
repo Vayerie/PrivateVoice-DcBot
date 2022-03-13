@@ -41,9 +41,13 @@ module.exports = (client, message) => {
         return message.reply({
           embeds: [new Discord.MessageEmbed()
             .setColor(ee.color)
-            .setFooter(ee.footertext, ee.footericon)
-            .setTitle(`Hugh? I got pinged? Imma give you some help`)
-            .setDescription(`To see all Commands type: \`${prefix}help\`\n\nTo setup an Application System type: \`${prefix}setup\`\n\nYou can edit the setup by running: \`${prefix}editsetup\`\n\n*There are 2 other setups just add Number 2/3 to the end of setup like that: \`${prefix}setup2\`/\`${prefix}setup3\`*`)]
+            //.setTitle("These Are The Command Catagories!")
+            //.setURL("https://youtu.be/zNE8insVgOA")
+            .setDescription(`<:Up:944799104909836289> **These Are The Command Catagories!**\n\n**Prefix**: \`${prefix}\` | [Click here - Support Server](https://discord.gg/4eR3BjQjt4)\n\n\`.help general\`\n[\`INVITE ME\`](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) | Developed By Kos#9100`)
+            .addField(`<:One:946041613220716564> **${prefix}Help General**`, "> *Shows All General/Information Commands!*", true)
+            .addField(`<:Two:946041613052956753> **${prefix}Help Setup**`, "> *Shows All Setup Voice System Commands!*", true)
+            .addField(`<:Three:946041613258473502> **${prefix}Help Voice**`, "> *Shows All Voice Moderation Commands!*", true)
+          ]
         })
       return
     };
@@ -69,13 +73,13 @@ module.exports = (client, message) => {
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.VIEW_CHANNEL)) return;
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.SEND_MESSAGES)) return;
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.EMBED_LINKS))
-      return message.reply(`❌ **I am missing the Permission to EMBED LINKS (Sending Embeds)**`)
+      return message.reply(`I Do Not Have The Permission To Sent Embeds`)
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.USE_EXTERNAL_EMOJIS))
-      return message.reply(`❌ **I am missing the Permission to USE EXTERNAL EMOJIS**`)
+      return message.reply(`I Do Not Have The Permission To Sent External Emojis`)
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.ADD_REACTIONS))
-      return message.reply(`❌ **I am missing the Permission to ADD REACTIONS**`)
+      return message.reply(`I Do Not Have The Permission To Add Reactions`)
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.MANAGE_CHANNELS))
-      return message.reply(`❌ **I am missing the Permission to MANAGE CHANNELS**`)
+      return message.reply(`I Do Not Have The Permission To Manage Channels`)
 
     //ALL CMDS, yes not looking great but its enough ;)
     if (["h", "help", "cmd"].includes(cmd))
@@ -98,8 +102,8 @@ module.exports = (client, message) => {
         embeds: [
           new Discord.MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle("UNKNOWN CMD")
-            .setDescription(`Sorry, i don't know this cmd! Try: \`${prefix}help\``)
+            //.setTitle("UNKNOWN CMD")
+            .setDescription(`**Unknown Command**\n\nSorry I Don't Know This Command, Try \`${prefix}help\``)
             .setFooter(ee.footertext, ee.footericon)
         ]
       })
@@ -111,8 +115,8 @@ module.exports = (client, message) => {
         new Discord.MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle("ERROR | ERROR")
-          .setDescription(`\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``)
+          //.setTitle("ERROR | ERROR")
+          .setDescription(`**Sorry There Was An Error**\n\n\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``)
       ]
     }).then((msg) => {
       setTimeout(() => { msg.delete() }, 7500)

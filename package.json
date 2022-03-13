@@ -1,20 +1,21 @@
 {
-  "name": "channel-master",
+  "name": "PrivateVoice",
   "version": "5.0.2",
-  "description": "The official repository of the Channel Master Discord Bot. A Voice Master clone, just way way faster and more advanced offering 100% customizability and 3 Setups!",
+  "description": "PrivateVoice",
   "main": "index.js",
   "dependencies": {
     "colors": "^1.4.0",
     "cpu-stat": "^2.0.1",
     "discord.js": "^13.3.1",
-    "enmap": "^5.8.4"
+    "enmap": "^5.8.4",
+    "moment": "^2.29.1"
   },
   "scripts": {
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tomato6966/Join-to-Create-Bot-Discord.git"
+    "url": "https://github.com/Kos9100/PrivateVoice"
   },
   "keywords": [
     "application",
@@ -35,7 +36,7 @@
   "author": "Kos#9100",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Tomato6966/Join-to-Create-Bot-Discord/issues"
+    "url": "https://github.com/Kos9100/PrivateVoice"
   },
-  "homepage": "https://milrato.dev"
+  "homepage": "https://github.com/Kos9100"
 }

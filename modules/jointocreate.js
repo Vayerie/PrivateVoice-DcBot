@@ -39,8 +39,8 @@ module.exports = function (client) {
       databasing(newState.guild.id, client); //load every database
       let channels = [];
       channels.push(client.settings.get(newState.guild.id, `channel`));
-      channels.push(client.settings2.get(newState.guild.id, `channel`));
-      channels.push(client.settings3.get(newState.guild.id, `channel`));
+      //channels.push(client.settings2.get(newState.guild.id, `channel`));
+      //channels.push(client.settings3.get(newState.guild.id, `channel`));
       for (let i = 0; i < channels.length; i++) {
         if (channels[i].length > 2 && channels[i].includes(newState.channelId)) {
           create_join_to_create_Channel(client, newState, i + 1);
@@ -107,8 +107,8 @@ module.exports = function (client) {
       if (oldState.channelId !== newState.channelId) {
         let channels = [];
         channels.push(client.settings.get(newState.guild.id, `channel`));
-        channels.push(client.settings2.get(newState.guild.id, `channel`));
-        channels.push(client.settings3.get(newState.guild.id, `channel`));
+        //channels.push(client.settings2.get(newState.guild.id, `channel`));
+        //channels.push(client.settings3.get(newState.guild.id, `channel`));
         for (let i = 0; i < channels.length; i++) {
           if (channels[i].length > 2 && channels[i].includes(newState.channelId)) {
             create_join_to_create_Channel(client, newState, i + 1);

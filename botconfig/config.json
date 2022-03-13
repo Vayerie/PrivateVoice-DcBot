@@ -1,6 +1,7 @@
 {
   "token": "OTQwNjAyMDMzMTcyNTI5MjM1.YgJx6A.BhU3ZuY9KvNCqiVSjMkmJWSGnrw",
-  "prefix": ".",
+  "prefix": "-",
+  "log": "940959527292002324",
 
   "check_all_channels_Interval_in_seconds": 10
 }

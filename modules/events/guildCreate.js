@@ -1,3 +1,6 @@
+//IMPORT LOGGER DATA
+const moment = require("moment");
+const { MessageEmbed } = require("discord.js");
 //IMPORT FILE DATA
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
@@ -44,4 +47,13 @@ module.exports = (client, guild, prefix) => {
         channel.send(`**Thanks For The Invite**\n\nTo Get More Informations Type \`.help\`\n To Get Started Type \`.help setup\` And Follow The Steps`);
 
     }
+
+    const date = `${moment().format("YYYY/MM/DD - hh:mm:ss")}`;
+	const DMC = client.channels.cache.get(client.logger);
+	const content = `\`\`\`ini\n[ Joined New Server ]\nServer: ${guild.name}\nServerID: ${guild.id}\nMembers: ${guild.members.cache.size}\`\`\``;
+	const embed = new MessageEmbed()
+		//.setTitle(date)
+		.setDescription(`<:Up:944799104909836289> **${date}**\n\n${content}`)
+		.setColor(client.embedColor);
+		DMC.send({embeds: [embed]});
 };
