@@ -1,1 +1,1 @@
-PrivateVoice 1.1.0
+PrivateVoice 1.0.0
