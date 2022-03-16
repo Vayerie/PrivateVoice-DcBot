@@ -1,4 +1,4 @@
-//IMPORT LOGGER DATA
+//IMPORT log DATA
 const moment = require("moment");
 const { MessageEmbed } = require("discord.js");
 //IMPORT FILE DATA
@@ -49,7 +49,7 @@ module.exports = (client, guild, prefix) => {
     }
 
     const date = `${moment().format("YYYY/MM/DD - hh:mm:ss")}`;
-	const DMC = client.channels.cache.get(client.logger);
+	const DMC = client.channels.cache.get(client.log);
 	const content = `\`\`\`ini\n[ Joined New Server ]\nServer: ${guild.name}\nServerID: ${guild.id}\nMembers: ${guild.members.cache.size}\`\`\``;
 	const embed = new MessageEmbed()
 		//.setTitle(date)

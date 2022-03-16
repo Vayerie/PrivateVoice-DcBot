@@ -89,8 +89,8 @@ process.on('multipleResolves', (type, promise, reason) => {
   console.log('=== multiple Resolves ===\n\n\n\n\n'.toUpperCase().yellow.dim);
 });
 
-//logger
-client.logger = config.log;
+//log
+client.log = config.logs;
 
 //login to the BOT
 client.login(config.token);

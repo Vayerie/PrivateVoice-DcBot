@@ -280,8 +280,8 @@ module.exports = (client, message, args, cmd, prefix) => {
             member.user.send({
               embeds: [new Discord.MessageEmbed()
                 .setColor(ee.color)
-                .setTitle(`You got invited to join ${message.author.tag}'s Voice Channel`)
-                .setDescription(`[Click here](${invite.url}) to join **${channel.name}**\n\n${txt ? txt : ""}`.substr(0, 2000))
+                //.setTitle(`You got invited to join ${message.author.tag}'s Voice Channel`)
+                .setDescription(`**You Were Invited To Join ${message.author.tag}'s Private Voice Channel**\n\n[Click here](${invite.url}) to join **${channel.name}**\n\n${txt ? txt : ""}`.substr(0, 2000))
                 .setFooter(ee.footertext, ee.footericon)
               ]
             }).catch(e => {
@@ -299,7 +299,7 @@ module.exports = (client, message, args, cmd, prefix) => {
           return message.reply({
             embeds: [new Discord.MessageEmbed()
               .setColor(ee.color) 
-              .setDescription(`**${member.user.tag} Was Invited To Your Private Voice Channel**\n\nAn Invitation Link Will Be Sent Through Their DMs`)
+              .setDescription(`**${member.user.tag} Was Invited To Your Private Voice Channel**\n\n*An Invitation Link Will Be Sent Through Their DMs*`)
               .setFooter(ee.footertext, ee.footericon)
             ]
           })
@@ -391,6 +391,7 @@ module.exports = (client, message, args, cmd, prefix) => {
               .setDescription(`**Sorry There Was An Error**\n\n\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``)
               .setFooter(ee.footertext, ee.footericon)
             ]
+            //
           })
         };
       vc.permissionOverwrites.create(member.user.id, {
