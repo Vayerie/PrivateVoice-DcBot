@@ -78,7 +78,7 @@ module.exports = (client, message, args, cmd, prefix) => {
           .addField(`\`${prefix}Unblacklist @User\``, "> *Unblacklist (trust) a User for Your Channel!*", true)
           .addField(`\`${prefix}Whitelist @User\``, "> *Whitelist a User to your Channel!*", true)
           .addField(`\`${prefix}Unwhitelist @User\``, "> *Remove a User from whitelist to your Channel!!*", true)
-          .addField(`\`${prefix}Rename <CHANNEL_NAME>\``, "> *Renames the Channel Name (20 Sec cooldown) BETA VERSION*", true)
+          .addField(`\`${prefix}Rename <CHANNEL_NAME>\``, "> *Renames The Private Voice Channel Name [BETA VERSION]*", true)
           .addField(`\`${prefix}Limit <UserLimit>\``, "> *Set's the Channel's UserLimit (how many can join)*", true)
           .addField(`\`${prefix}Bitrate <Bitrate in bits>\``, "> *Set's the Channel's bitrate*", true)
           .addField(`\`${prefix}VCinvite @User [Optional Message To Them]\``, "> *Invites a User for your Voice Channel*", true)
