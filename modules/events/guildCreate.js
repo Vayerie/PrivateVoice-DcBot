@@ -1,4 +1,4 @@
-//IMPORT LOGGER DATA
+//IMPORT log DATA
 const moment = require("moment");
 const { MessageEmbed } = require("discord.js");
 //IMPORT FILE DATA
@@ -31,25 +31,25 @@ module.exports = (client, guild, prefix) => {
                     .setColor(ee.color)
                     //.setTitle("These Are The Command Catagories!")
                     .setDescription(`<:Up:944799104909836289> **These Are The Command Catagories!**\n\n**Default Prefix**: \`${prefix}\` | [Click here - Support Server](https://discord.gg/4eR3BjQjt4)\n\n*Enter The Catagories To See Informations For The Commands.* \n[\`Invite Private Voice\`](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) | [\`Support Server\`](https://discord.gg/4eR3BjQjt4) | Developed By Kos#9100`)
-                    .addField(`\`.help general\``, "> *Shows all general/Information Commands!*", true)
-                    .addField(`\`.help setup\``, "> *Shows you all Setup related Commands (how to create a setup, etc.)*", true)
-                    .addField(`\`.help voice\``, "> *Shows you all Voice Channel (hosted) related Commands*", true)
+                    .addField(`\`${prefix}help general\``, "> *Shows all general/Information Commands!*", true)
+                    .addField(`\`${prefix}help setup\``, "> *Shows you all Setup related Commands (how to create a setup, etc.)*", true)
+                    .addField(`\`${prefix}help voice\``, "> *Shows you all Voice Channel (hosted) related Commands*", true)
             ]
         })
         channel.send({
             embeds: [new Discord.MessageEmbed()
                 .setColor(ee.color)
                 .setTitle("Thanks For The Invite")
-                .setDescription(`To Get More Informations Type \`.help\`\n To Get Started Type \`.help setup\` And Follow The Steps`)
+                .setDescription(`To Get More Informations Type \`${prefix}help\`\n To Get Started Type \`${prefix}help setup\` And Follow The Steps`)
                 .setFooter(ee.footertext, ee.footericon)]
         })
     } else {
-        channel.send(`**Thanks For The Invite**\n\nTo Get More Informations Type \`.help\`\n To Get Started Type \`.help setup\` And Follow The Steps`);
+        channel.send(`**Thanks For The Invite**\n\nTo Get More Informations Type \`${prefix}help\`\n To Get Started Type \`${prefix}help setup\` And Follow The Steps`);
 
     }
 
     const date = `${moment().format("YYYY/MM/DD - hh:mm:ss")}`;
-	const DMC = client.channels.cache.get(client.logger);
+	const DMC = client.channels.cache.get(client.log);
 	const content = `\`\`\`ini\n[ Joined New Server ]\nServer: ${guild.name}\nServerID: ${guild.id}\nMembers: ${guild.members.cache.size}\`\`\``;
 	const embed = new MessageEmbed()
 		//.setTitle(date)

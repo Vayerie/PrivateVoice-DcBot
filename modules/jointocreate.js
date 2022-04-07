@@ -89,8 +89,8 @@ module.exports = function (client) {
                   embeds: [new MessageEmbed()
                     .setColor(ee.color)
                     .setFooter(ee.footertext, ee.footericon)
-                    .setTitle("The Owner left, you are now the new one!")
-                    .setDescription(`you now have access to all \.help voice\` Commands!`)]
+                    //.setTitle("The Owner left, you are now the new one!")
+                    .setDescription(`<:Voice:932252642728636427> **You Are The New Owner Of This Private Voice Channel**\n\nYou Can Now Use \`${prefix} help voice\` Commands!`)]
                 })
               })
             } catch {

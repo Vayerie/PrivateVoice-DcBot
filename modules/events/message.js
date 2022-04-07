@@ -43,7 +43,7 @@ module.exports = (client, message) => {
             .setColor(ee.color)
             //.setTitle("These Are The Command Catagories!")
             //.setURL("https://youtu.be/zNE8insVgOA")
-            .setDescription(`<:Up:944799104909836289> **These Are The Command Catagories!**\n\n**Prefix**: \`${prefix}\` | [Click here - Support Server](https://discord.gg/4eR3BjQjt4)\n\n\`.help general\`\n[\`INVITE ME\`](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) | Developed By Kos#9100`)
+            .setDescription(`<:Up:944799104909836289> **These Are The Command Catagories!**\n\n**Prefix**: \`${prefix}\` | [Click here - Support Server](https://discord.gg/4eR3BjQjt4)\n\n\`${prefix}help general\`\n[\`INVITE ME\`](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) | Developed By Kos#9100`)
             .addField(`<:One:946041613220716564> **${prefix}Help General**`, "> *Shows All General/Information Commands!*", true)
             .addField(`<:Two:946041613052956753> **${prefix}Help Setup**`, "> *Shows All Setup Voice System Commands!*", true)
             .addField(`<:Three:946041613258473502> **${prefix}Help Voice**`, "> *Shows All Voice Moderation Commands!*", true)

@@ -280,8 +280,8 @@ module.exports = (client, message, args, cmd, prefix) => {
             member.user.send({
               embeds: [new Discord.MessageEmbed()
                 .setColor(ee.color)
-                .setTitle(`You got invited to join ${message.author.tag}'s Voice Channel`)
-                .setDescription(`[Click here](${invite.url}) to join **${channel.name}**\n\n${txt ? txt : ""}`.substr(0, 2000))
+                //.setTitle(`You got invited to join ${message.author.tag}'s Voice Channel`)
+                .setDescription(`**You Were Invited To Join ${message.author.tag}'s Private Voice Channel**\n\n[Click here](${invite.url}) to join **${channel.name}**\n\n${txt ? txt : ""}`.substr(0, 2000))
                 .setFooter(ee.footertext, ee.footericon)
               ]
             }).catch(e => {
@@ -299,7 +299,7 @@ module.exports = (client, message, args, cmd, prefix) => {
           return message.reply({
             embeds: [new Discord.MessageEmbed()
               .setColor(ee.color) 
-              .setDescription(`**${member.user.tag} Was Invited To Your Private Voice Channel**\n\nAn Invitation Link Will Be Sent Through Their DMs`)
+              .setDescription(`**${member.user.tag} Was Invited To Your Private Voice Channel**\n\n*An Invitation Link Will Be Sent Through Their DMs*`)
               .setFooter(ee.footertext, ee.footericon)
             ]
           })
@@ -391,6 +391,7 @@ module.exports = (client, message, args, cmd, prefix) => {
               .setDescription(`**Sorry There Was An Error**\n\n\`\`\`${String(e.message ? e.message : e).substr(0, 2000)}\`\`\``)
               .setFooter(ee.footertext, ee.footericon)
             ]
+            //
           })
         };
       vc.permissionOverwrites.create(member.user.id, {
@@ -769,7 +770,7 @@ module.exports = (client, message, args, cmd, prefix) => {
           new Discord.MessageEmbed()
             .setColor(ee.wrongcolor)
             .setFooter(ee.footertext, ee.footericon)
-            .setDescription(`**You Must Provide A Number In Range**\n\nDo \`.bitrate [8000 - 96000]\`\n\n*Note* - Normal Voice Channel Runs At \`64000\` Bits`)
+            .setDescription(`**You Must Provide A Number In Range**\n\nDo \`${prefix}bitrate [8000 - 96000]\`\n\n*Note* - Normal Voice Channel Runs At \`64000\` Bits`)
         ]
       });
       channel.setBitrate(userlimit).then(vc => {
@@ -791,6 +792,71 @@ module.exports = (client, message, args, cmd, prefix) => {
         ]
       })
     }
+  } else if (cmd === "rename") {
+    let {
+      channel
+    } = message.member.voice;
+    if (!channel) return message.reply({
+      embeds: [new Discord.MessageEmbed()
+        .setColor(ee.wrongcolor)
+        .setDescription("**You Must Be In A Private Voice Channel To Use This Command**")
+        //.setFooter(ee.footertext, ee.footericon)
+      ]
+    });
+    client.jointocreatemap.ensure(`tempvoicechannel_${message.guild.id}_${channel.id}`, false);
+    client.jointocreatemap.ensure(`owner_${message.guild.id}_${channel.id}`, false);
+    if (client.jointocreatemap.get(`tempvoicechannel_${message.guild.id}_${channel.id}`)) {
+      var vc = message.guild.channels.cache.get(client.jointocreatemap.get(`tempvoicechannel_${message.guild.id}_${channel.id}`));
+      let perms = vc.permissionsFor(message.author.id);
+      let owner = false;
+      for (let i = 0; i < perms.length; i++) {
+        if (perms[i].id === message.author.id && perms[i].allow.toArray().includes("MANAGE_CHANNELS")) owner = true
+      };
+      if (client.jointocreatemap.get(`owner_${message.guild.id}_${channel.id}`) === message.author.id) owner = true;
+      if (!owner)
+        return message.reply({
+          embeds: [new Discord.MessageEmbed()
+            .setColor(ee.wrongcolor)
+            .setDescription("**You Must Be The Owner Of This Private Voice Channel To Use This Command**")
+            .setFooter(ee.footertext, ee.footericon)
+          ]
+        });
+      if (!args[0]) return message.reply({ 
+        embeds: [new Discord.MessageEmbed()
+          .setColor(ee.color)
+          .setFooter(ee.footertext, ee.footericon)
+          .setDescription(`**You Did Not Provide A Channel Name**\n\nDo \`${prefix}rename [New Channel Name]\`*`)
+        ]
+      });
+      if (args[0].length > 32) return message.reply({ 
+        embeds: [new Discord.MessageEmbed()
+          .setColor(ee.color)
+          .setFooter(ee.footertext, ee.footericon)
+          .setDescription(`**The Channel Name You Provided Was Too Long**\n\nThe Maximum Length For A Channel Name Is \`32\` Letters`)
+        ] 
+      });
+
+      let setChannelName = args[0];
+
+      channel.setName(setChannelName).then(vc => {
+        return message.reply({
+          embeds: [new Discord.MessageEmbed()
+            .setColor(ee.color)
+            .setDescription(`**Private Voice Name Was Set To *${vc.name}* **`)
+            .setFooter(ee.footertext, ee.footericon)
+          ]
+        })
+      })
+    } else {
+      return message.reply({
+        embeds: [new Discord.MessageEmbed()
+          .setColor(ee.wrongcolor)
+          .setDescription("**You Must Be In A Private Voice Channel To Use This Command**")
+          .setFooter(ee.footertext, ee.footericon)
+        ]
+      })
+    }
+
   } else if (cmd === "promote") {
     let {
       channel
