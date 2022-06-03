@@ -27,8 +27,7 @@ module.exports = (client, message, args, cmd, prefix) => {
         new Discord.MessageEmbed()
           .setColor(ee.color)
           .setFooter(ee.footertext, ee.footericon)
-          .setAuthor(`${client.user.username} Support`, client.user.displayAvatarURL())
-          .setDescription("[\`Join Our Support Server\`](https://discord.gg/4eR3BjQjt4) If You Have Any Unanswered Questions")
+          .setDescription("**Private Voice Support Server**\n\n[\`Join Our Support Server\`](https://discord.gg/4eR3BjQjt4) If You Have Any Unanswered Questions")
       ]
     })
     return;
@@ -44,7 +43,7 @@ module.exports = (client, message, args, cmd, prefix) => {
         //totalSetups += client.settings3.filter(s => s.channel && s.channel.length > 1).size;
 
         const botinfo = new Discord.MessageEmbed()
-          .setAuthor(client.user.username, client.user.displayAvatarURL())
+          .setDescription(`<:Info:931908144626532403> **${client.user.username}'s Info**`)
           //.setTitle("__**Stats:**__")
           .setColor(ee.color)
           .addField("\u200b", `\u200b`, true)
@@ -59,15 +58,15 @@ module.exports = (client, message, args, cmd, prefix) => {
 
       } catch {
         const botinfo = new Discord.MessageEmbed()
-          .setAuthor(client.user.username, client.user.displayAvatarURL())
-          //.setTitle("__**Stats:**__")
+        .setDescription(`<:Info:931908144626532403> **${client.user.username}'s Info**`)
+        //.setTitle("__**Stats:**__")
           .setColor(ee.color)
           .addField("\u200b", `\u200b`, true)
           .addField("<:At:932619615434047490> Users", `\`Total: ${client.users.cache.size + 87} Users\``, true)
           .addField("<:Up:944799104909836289> Servers", `\`Total: ${client.guilds.cache.size + 87} Servers\``, true)
           .addField("\u200b", `\u200b`, true)
           .addField("<:Voice:932252642728636427> Voice Channels", `\`Total: ${client.channels.cache.filter((ch) => ch.type === "voice").size + 87} VCs\``, true)
-          .addField("<:Gear:935160619332698142> Setups", `\`${totalSetups} Setups Created\``, true)
+          .addField("<:Gear:951453383426982009> Setups", `\`${totalSetups} Setups Created\``, true)
           .addField("\u200b", `\u200b`, true)
           .setFooter(ee.footertext, ee.footericon);
         message.channel.send({ embeds: [botinfo] });
@@ -130,7 +129,7 @@ module.exports = (client, message, args, cmd, prefix) => {
     const embed = new Discord.MessageEmbed()
       .setColor(ee.color)
       .setFooter("Serverlist System Designed By Kos#9100")
-      .setDescription(serverlist)
+      .setDescription(`**Private Voice In ${client.guilds.cache.size} Servers**\n\n${serverlist}`)
     message.channel.send({ embeds: [embed] });
     
   }

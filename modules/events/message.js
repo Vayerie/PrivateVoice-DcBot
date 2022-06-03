@@ -43,7 +43,7 @@ module.exports = (client, message) => {
             .setColor(ee.color)
             //.setTitle("These Are The Command Catagories!")
             //.setURL("https://youtu.be/zNE8insVgOA")
-            .setDescription(`<:Up:944799104909836289> **These Are The Command Catagories!**\n\n**Prefix**: \`${prefix}\` | [Click here - Support Server](https://discord.gg/4eR3BjQjt4)\n\n\`.help general\`\n[\`INVITE ME\`](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) | Developed By Kos#9100`)
+            .setDescription(`<:Up:944799104909836289> **These Are The Command Catagories!**\n\n**Prefix**: \`${prefix}\` | [Click here - Support Server](https://discord.gg/4eR3BjQjt4)\n\n\`${prefix}help general\`\n[\`INVITE ME\`](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) | Developed By Kos#9100`)
             .addField(`<:One:946041613220716564> **${prefix}Help General**`, "> *Shows All General/Information Commands!*", true)
             .addField(`<:Two:946041613052956753> **${prefix}Help Setup**`, "> *Shows All Setup Voice System Commands!*", true)
             .addField(`<:Three:946041613258473502> **${prefix}Help Voice**`, "> *Shows All Voice Moderation Commands!*", true)
@@ -52,30 +52,12 @@ module.exports = (client, message) => {
       return
     };
 
-    //if the Bot has not enough permissions return error
-    /*let required_perms = ["MANAGE_CHANNELS", "VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"]
-    if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.MANAGE_CHANNELS) && !message.guild.me.permissions.has(Discord.Permissions.FLAGS.EMBED_LINKS) && !message.guild.me.permissions.has(Discord.Permissions.FLAGS.SEND_MESSAGES) && !message.guild.me.permissions.has(Discord.Permissions.FLAGS.VIEW_CHANNEL) && cmd != "help") {
-      if (message.guild.me.permissions.has(Discord.Permissions.FLAGS.EMBED_LINKS)) {
-        return message.reply({
-          embeds: [
-            new Discord.MessageEmbed()
-              .setColor(ee.color)
-              .setFooter(ee.footertext, ee.footericon)
-              .setTitle("❌ Error | I don't have enough Permissions!")
-              .setDescription("Please give me just `ADMINISTRATOR`, because I need it to delete Messages, Create Channel and execute all Admin Commands.\n If you don't want to give me them, then those are the exact Permissions which I need: \n> `" + required_perms.join("`, `") + "`")
-          ]
-        })
-      } else {
-        return message.reply("❌ Error | I don't have enough Permissions! Please give me just `ADMINISTRATOR`, because I need it to delete Messages, Create Channel and execute all Admin Commands.\n If you don't want to give me them, then those are the exact Permissions which I need: \n> `" + required_perms.join("`, `") + "`")
-      }
-    };*/
-
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.VIEW_CHANNEL)) return;
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.SEND_MESSAGES)) return;
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.EMBED_LINKS))
-      return message.reply(`I Do Not Have The Permission To Sent Embeds`)
+      return message.reply(`I Do Not Have The Permission To Send Embeds`)
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.USE_EXTERNAL_EMOJIS))
-      return message.reply(`I Do Not Have The Permission To Sent External Emojis`)
+      return message.reply(`I Do Not Have The Permission To Send External Emojis`)
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.ADD_REACTIONS))
       return message.reply(`I Do Not Have The Permission To Add Reactions`)
     if (!message.guild.me.permissions.has(Discord.Permissions.FLAGS.MANAGE_CHANNELS))
@@ -96,21 +78,23 @@ module.exports = (client, message) => {
     //fire a setup command
     else if (client.category.setup.includes(cmd))
       require("../../modules/handlers/setup_cmds")(client, message, args, cmd, prefix)
-
+      
     else {
-      return message.reply({
+      return /*message.reply({
+       
         embeds: [
           new Discord.MessageEmbed()
             .setColor(ee.wrongcolor)
-            //.setTitle("UNKNOWN CMD")
             .setDescription(`**Unknown Command**\n\nSorry I Don't Know This Command, Try \`${prefix}help\``)
             .setFooter(ee.footertext, ee.footericon)
         ]
       })
+      */
     }
+    
   } catch (e) {
     console.log(e)
-    message.channel.send({
+    /*message.channel.send({
       embeds: [
         new Discord.MessageEmbed()
           .setColor(ee.wrongcolor)
@@ -120,8 +104,11 @@ module.exports = (client, message) => {
       ]
     }).then((msg) => {
       setTimeout(() => { msg.delete() }, 7500)
-    })/*.then(msg => msg.delete({
+    }).then(msg => msg.delete({
       timeout: 7500
-    }))*/
+
+    }))
+    */
+    
   }
 };

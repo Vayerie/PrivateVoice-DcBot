@@ -1,5 +1,6 @@
 //import the Discord Library
 const Discord = require("discord.js");
+const moment = require("moment");
 const colors = require("colors");
 //create a new Client
 const client = new Discord.Client({
@@ -64,7 +65,7 @@ process.on('unhandledRejection', (reason, p) => {
   console.log('\n\n\n\n\n=== unhandled Rejection ==='.toUpperCase().yellow.dim);
   console.log('Reason: ', reason.stack ? String(reason.stack).gray : String(reason).gray);
   console.log('=== unhandled Rejection ===\n\n\n\n\n'.toUpperCase().yellow.dim);
-});
+})
 process.on("uncaughtException", (err, origin) => {
   console.log('\n\n\n\n\n\n=== uncaught Exception ==='.toUpperCase().yellow.dim);
   console.log('Exception: ', err.stack ? err.stack : err)
@@ -89,9 +90,8 @@ process.on('multipleResolves', (type, promise, reason) => {
   console.log('=== multiple Resolves ===\n\n\n\n\n'.toUpperCase().yellow.dim);
 });
 
-//logger
-client.logger = config.log;
+//log
+client.log = config.logs;
 
-//login to the BOT
+
 client.login(config.token);
-
